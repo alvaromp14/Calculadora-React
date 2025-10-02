@@ -1,0 +1,222 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configuración del cuerpo de la página */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor principal de la calculadora */
+.calculator {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Título de la calculadora */
+.calculator-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Cuerpo principal de la calculadora */
+.calculator-body {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pantalla de la calculadora */
+.calculator-display {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-align: right;
+  margin-bottom: 20px;
+  color: #333;
+  box-shadow: 
+    inset 0 4px 8px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+/* Contenedor de todos los botones */
+.calculator-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Fila de botones */
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Estilos base para todos los botones */
+.btn {
+  border: none;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.05);
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Efecto hover para todos los botones */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto cuando se presiona un botón */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Botones de números */
+.btn-number {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-number:hover {
+  background: linear-gradient(145deg, #f8f8f8, #e8e8e8);
+}
+
+/* Botones de operaciones */
+.btn-operation {
+  background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+  color: white;
+  font-size: 1.6rem;
+}
+
+.btn-operation:hover {
+  background: linear-gradient(145deg, #ff5252, #e53935);
+}
+
+/* Botones de función (Clear, Delete) */
+.btn-function {
+  background: linear-gradient(145deg, #ffa726, #ff9800);
+  color: white;
+}
+
+.btn-function:hover {
+  background: linear-gradient(145deg, #ff9800, #f57c00);
+}
+
+/* Botón de igual */
+.btn-equals {
+  background: linear-gradient(145deg, #4caf50, #43a047);
+  color: white;
+  grid-row: span 2;
+  height: 132px; /* 60px * 2 + 12px gap */
+}
+
+.btn-equals:hover {
+  background: linear-gradient(145deg, #43a047, #388e3c);
+}
+
+/* Botón del cero (más ancho) */
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* Ajuste especial para la última fila */
+.button-row:last-child {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* Efectos de resplandor para botones especiales */
+.btn-operation:active {
+  box-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-equals:active {
+  box-shadow: 
+    0 0 20px rgba(76, 175, 80, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 480px) {
+  .calculator {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .calculator-display {
+    font-size: 2rem;
+    padding: 15px;
+  }
+  
+  .btn {
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .btn-equals {
+    height: 112px; /* 50px * 2 + 12px gap */
+  }
+}
+
+/* Animación sutil para la carga */
+.calculator {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
